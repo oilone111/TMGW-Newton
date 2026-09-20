@@ -1,0 +1,81 @@
+# Field-scale template based on summary values reported in the manuscript.
+# Parameters not explicitly reported in the manuscript are illustrative schema
+# placeholders, not field measurements. Replace all uniform properties, fracture
+# cells, well locations, schedules, and observations with source data before using
+# this configuration for history matching.
+name: zhuang23_north_92x65x2_template
+grid:
+  nx: 92
+  ny: 65
+  nz: 2
+  dx_m: 20.0
+  dy_m: 20.0
+  dz_m: 2.4
+rock:
+  porosity: 0.129
+  permeability_m2: 1.1e-15
+  compressibility_pa_inv: 5.0e-9
+  reference_pressure_pa: 4.95e7
+microfracture:
+  enabled: true
+  aperture_m: 1.51e-5
+  aperture_reference_m: 1.51e-5
+  surface_density_um_cm2: 234.3
+  surface_density_reference_um_cm2: 234.3
+  penetration_ratio: 0.4
+  penetration_reference: 0.4
+  stress_sensitivity_coefficient: 0.0094
+  stress_sensitivity_exponent: -0.0891
+  overburden_pressure_pa: 6.5e7
+  boundary_layer_a: 0.15
+  boundary_layer_b_pa_inv_m: 4.0e-5
+  threshold_gradient_pa_m: 2.0e5
+fluid:
+  oil_viscosity_pa_s: 1.13e-3
+  water_viscosity_pa_s: 5.5e-4
+  gas_viscosity_pa_s: 1.8e-5
+  oil_density_kg_m3: 767.0
+  water_density_kg_m3: 1000.0
+  gas_density_kg_m3: 120.0
+  swc: 0.20
+  sor: 0.20
+  sgc: 0.0
+  corey_water: 2.0
+  corey_oil: 2.0
+  corey_gas: 2.0
+fracture:
+  continuum_multiplier: 20.0
+  continuum_porosity: 0.02
+  continuum_transfer_shape: 2.0e-5
+  discrete_cells: []
+  discrete_permeability_m2: 5.0e-11
+  discrete_porosity: 0.10
+  discrete_aperture_m: 3.0e-3
+  forchheimer_beta_m_inv: 1.0e6
+  mf_transfer_multiplier: 1.0
+  fF_transfer_multiplier: 1.0
+wells: []
+time:
+  total_time_s: 315360000.0
+  initial_dt_s: 86400.0
+  min_dt_s: 3600.0
+  max_dt_s: 2592000.0
+  adaptive: true
+solver:
+  mode: S0
+  nonlinear_tolerance: 1.0e-7
+  increment_tolerance: 1.0e-7
+  mass_tolerance: 1.0e-6
+  warm_start_mass_tolerance: 1.0e-3
+  max_newton: 15
+  gmres_tolerance: 1.0e-7
+  gmres_maxiter: 120
+  dense_jacobian_limit: 600
+  armijo_c: 1.0e-4
+  residual_accept: 0.8
+  residual_reject: 1.2
+  residual_use_max: 0.98
+initial:
+  pressure_pa: 4.95e7
+  water_saturation: 0.25
+  gas_saturation: 0.0

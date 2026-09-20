@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite the accompanying article and this
+  software release.
+title: >-
+  TMGW-Newton: Threshold-aware multi-continuum graph warm starts for fully
+  implicit fractured-reservoir simulation
+type: software
+version: 0.18.0
+date-released: 2026-09-19
+license: MIT
+authors:
+  - family-names: Ma
+    given-names: Fang
+  - family-names: Yin
+    given-names: Daiyin
+  - family-names: Tang
+    given-names: Zhaokai
+  - family-names: Liu
+    given-names: Kai
+    orcid: https://orcid.org/0000-0003-1967-3347
+  - family-names: Li
+    given-names: Chao
+  - family-names: Wang
+    given-names: Dongqi
+
