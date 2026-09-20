@@ -130,10 +130,10 @@ class NonlinearSolver:
         predictor_elapsed = perf_counter() - predictor_started
         if correction.shape != x_ext.shape:
             raise ValueError("predictor returned a correction with an invalid shape")
-        x_ai = self.model.warm_start_well_projection(x_ext + correction)
+        x_model = self.model.warm_start_well_projection(x_ext + correction)
         if mode == "S2":
             return (
-                x_ai,
+                x_model,
                 "graph_warm_start",
                 None,
                 None,
@@ -210,7 +210,7 @@ class NonlinearSolver:
                 self._precomputed_initial_residual = residual_best
                 return (
                     state_best,
-                    "accepted_ai" if ratio_best <= self.cfg.residual_accept else "residual_blend",
+                    "accepted_model" if ratio_best <= self.cfg.residual_accept else "residual_blend",
                     ratio_best, mass_ratio_best,
                     predicted_relaxation * alpha_best, predictor_elapsed,
                 )

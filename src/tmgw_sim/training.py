@@ -11,7 +11,7 @@ from .network import torch
 
 if torch is not None:
     from .network import TMGWNetwork
-else:  # Allows dataset/normalization checks without installing the AI backend.
+else:  # Allows dataset/normalization checks without installing PyTorch.
     TMGWNetwork = None
 
 
@@ -161,7 +161,7 @@ def train_network(
     train_samples: list[TrainingSample],
     validation_samples: list[TrainingSample],
     output_checkpoint: str | Path,
-    epochs: int = 300,
+    epochs: int = 150,
     learning_rate: float = 1.0e-3,
     weight_decay: float = 1.0e-5,
     patience: int = 30,
@@ -521,7 +521,7 @@ def train_network(
                         candidates.append((ratio, float(gain)))
                 ratio, gain = min(candidates, default=(1.0, 0.0), key=lambda item: item[0])
                 # A non-improving candidate is equivalent to the exact S1
-                # fallback and must not be counted as AI use.
+                # fallback and must not be counted as learned-model use.
                 if ratio >= 1.0:
                     ratio, gain = 1.0, 0.0
                 selected_ratios.append(ratio)

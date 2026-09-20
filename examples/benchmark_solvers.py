@@ -79,7 +79,7 @@ def main() -> None:
         )
         summaries[name]["initial_source_counts"] = dict(source_counts)
         accepted_count = max(len(accepted_records), 1)
-        summaries[name]["ai_trigger_skip_rate"] = float(
+        summaries[name]["model_trigger_skip_rate"] = float(
             source_counts.get("triggered_s1", 0) / accepted_count
         )
         summaries[name]["graph_inference_steps"] = int(

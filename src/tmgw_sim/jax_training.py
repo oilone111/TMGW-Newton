@@ -146,7 +146,7 @@ def train_jax_network(
     train_samples: list[TrainingSample],
     validation_samples: list[TrainingSample],
     output_checkpoint: str | Path,
-    epochs: int = 300,
+    epochs: int = 150,
     learning_rate: float = 1.0e-3,
     weight_decay: float = 1.0e-5,
     patience: int = 30,

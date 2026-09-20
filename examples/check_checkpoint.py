@@ -55,11 +55,11 @@ def main() -> None:
     report["median_warm_start_alpha"] = float(np.median(alphas)) if alphas else None
     counts = report["initial_source_counts"]
     n_steps = max(len(accepted), 1)
-    report["direct_ai_acceptance_rate"] = counts.get("accepted_ai", 0) / n_steps
-    report["ai_used_rate"] = (
-        counts.get("accepted_ai", 0) + counts.get("residual_blend", 0)
+    report["direct_model_acceptance_rate"] = counts.get("accepted_model", 0) / n_steps
+    report["model_used_rate"] = (
+        counts.get("accepted_model", 0) + counts.get("residual_blend", 0)
     ) / n_steps
-    report["ai_trigger_skip_rate"] = counts.get("triggered_s1", 0) / n_steps
+    report["model_trigger_skip_rate"] = counts.get("triggered_s1", 0) / n_steps
     report["fallback_rate"] = sum(
         value for key, value in counts.items()
         if key.startswith("fallback")
@@ -70,7 +70,7 @@ def main() -> None:
         )
     report["predictor_time_share"] = report["predictor_time_s"] / max(report["online_time_s"], 1.0e-30)
 
-    # S1 is the correct online baseline for an AI correction applied on top of
+    # S1 is the correct online baseline for a learned correction applied on top of
     # temporal extrapolation.  The supplied stored run remains the independent
     # S0 high-fidelity reference for final-state accuracy.
     cfg_s1 = load_case(args.config)

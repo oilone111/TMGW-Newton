@@ -10,7 +10,7 @@ from .physics import State, ThreePhaseMultiContinuumModel
 try:
     import torch
     from torch import nn
-except ImportError:  # pragma: no cover - exercised only on installations without AI extras
+except ImportError:  # pragma: no cover - exercised only without ML dependencies
     torch = None
     nn = None
 
@@ -166,7 +166,7 @@ if nn is not None:
 class TorchCorrectionPredictor:
     def __init__(self, checkpoint: str | Path, device: str = "cpu"):
         if torch is None:
-            raise ImportError("install the 'ai' optional dependencies to use TMGWNetwork")
+            raise ImportError("install the 'ml' optional dependencies to use TMGWNetwork")
         payload = torch.load(Path(checkpoint), map_location=device, weights_only=True)
         if payload.get("checkpoint_format_version") not in {2, 3, 4, 5, 6, 7, 8, 9, 10, 11}:
             raise ValueError(

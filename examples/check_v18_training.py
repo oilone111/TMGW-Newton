@@ -91,7 +91,7 @@ def main() -> None:
         if not screened.converged:
             raise RuntimeError("v0.18 residual gate did not preserve convergence")
         if screened.initial_source not in {
-            "accepted_ai", "residual_blend", "fallback_residual",
+            "accepted_model", "residual_blend", "fallback_residual",
             "fallback_flat_response",
         }:
             raise RuntimeError("v0.18 residual gate returned an invalid source")

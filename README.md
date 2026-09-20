@@ -76,7 +76,7 @@ python -m pip install -e .
 For graph-model training, plotting, and development tools:
 
 ```bash
-python -m pip install -e ".[ai,viz,dev]"
+python -m pip install -e ".[ml,viz,dev]"
 ```
 
 PyTorch CPU wheels may alternatively be installed from the official PyTorch
@@ -157,7 +157,7 @@ scale-calibration cases.
 python examples/train_model.py configs/training_21x21.yaml \
   outputs/dataset_96_21x21_v2 \
   --extra-dataset outputs/dataset_12_41x41_v18 \
-  --model-kind TMGW --backend torch --epochs 300 \
+  --model-kind TMGW --backend torch --epochs 150 \
   --checkpoint outputs/tmgw_multiscale_v18_final.pt
 ```
 

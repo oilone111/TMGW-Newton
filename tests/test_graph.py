@@ -63,7 +63,7 @@ class GraphTests(unittest.TestCase):
             model.initial_state(), 3600.0
         )
         self.assertTrue(result.converged)
-        self.assertIn(result.initial_source, {"accepted_ai", "residual_blend", "fallback_residual"})
+        self.assertIn(result.initial_source, {"accepted_model", "residual_blend", "fallback_residual"})
 
     def test_v18_normalization_and_newton_weighted_sampling_contract(self):
         state = self.model.initial_state()

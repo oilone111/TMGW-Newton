@@ -24,9 +24,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-ai = ["torch==2.8.0"]
-ai-cpu = ["torch==2.8.0"]
-ai-jax = ["jax[cpu]>=0.4.38"]
+ml = ["torch==2.8.0"]
+ml-cpu = ["torch==2.8.0"]
+ml-jax = ["jax[cpu]>=0.4.38"]
 viz = ["matplotlib>=3.8", "pandas>=2.1"]
 dev = ["pytest>=8.0"]
 

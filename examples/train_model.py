@@ -27,7 +27,7 @@ def main() -> None:
     )
     parser.add_argument("--checkpoint", type=Path, default=Path("outputs/tmgw.pt"))
     parser.add_argument("--device", default="cpu")
-    parser.add_argument("--epochs", type=int, default=300)
+    parser.add_argument("--epochs", type=int, default=150)
     parser.add_argument("--model-kind", choices=["GNN", "HGNN", "TMGW"], default="TMGW")
     parser.add_argument("--backend", choices=["jax", "torch"], default="jax")
     parser.add_argument("--steps-per-case", type=int, default=12)
